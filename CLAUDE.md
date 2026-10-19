@@ -45,7 +45,7 @@
 - Categoria inventario: fork prompt/agenti.
 
 ### Architettura (contesto)
-_Revisione 2026-10-16, metodo Cum scire, fonte GitHub `Pesach85/agency-agents` @ `ad9264e309bd` (sola lettura)._
+_Revisione 2026-10-16, metodo Cum scire, fonte GitHub `Pesach85/agency-agents` @ `ad9264e309bd` (sola lettura); riverifica puntuale 2026-10-18 @ `d292d79`._
 - **Stack**: agenti in Markdown (cartelle per divisione) + script Bash/Python di conversione/installazione; linguaggi API: Shell, Python, PowerShell [VERIFICATO: albero + `/languages` @`ad9264e309bd`]
 - **Struttura** [VERIFICATO: albero @`ad9264e309bd`]:
   - `engineering/`, `marketing/`, `specialized/`, `design/`, `testing/`… : un `.md` per agente, raggruppati per divisione
@@ -54,7 +54,7 @@ _Revisione 2026-10-16, metodo Cum scire, fonte GitHub `Pesach85/agency-agents` @
   - `divisions.json`, `tools.json`: indici machine-readable; `examples/`: esempi d'uso
 - **Flusso dati**: `.md` agente (frontmatter) → `scripts/convert.sh` → formati per tool in `integrations/` → `install.sh` copia nel tool locale [INFERITO: nomi script + README]
 - **Comandi build/test** [VERIFICATO: `.github/workflows/lint-agents.yml`, `test-install.yml` @`ad9264e309bd`]: `./scripts/lint-agents.sh <file>`, `./scripts/check-agent-originality.sh <file>`, `bash -n scripts/*.sh`, `./scripts/test-install.sh` (solo sandbox approvato)
-- **Confini / cosa NON toccare**: intero contenuto upstream (fork 0 avanti / 358 indietro rispetto a `msitarzewski/agency-agents` @main [VERIFICATO: API compare 2026-10-16]); nessun file locale aggiunto; non eseguire `install.sh` sul PC
+- **Confini / cosa NON toccare**: intero contenuto upstream (fork di `msitarzewski/agency-agents`); unico file locale: `CLAUDE.md` [VERIFICATO: API compare 2026-10-18]; non eseguire `install.sh` sul PC
 - **UI / design**: N/A (nessuna UI) [VERIFICATO: albero]
 - **Glossario**: *divisione* (cartella tematica di agenti) · *agente* (persona `.md` con processi e deliverable) · *integration* (adattatore per un tool) · *convert* (generazione formati per tool) · *originality check* (controllo anti-duplicati in CI)
 - IGNOTO: 0 campi
